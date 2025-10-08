@@ -1,0 +1,27 @@
+River,Basin,From_State,To_State,Flow_TMC,Flow_Type,Year,Notes
+Ganga,Ganga Basin,Uttarakhand,Uttar Pradesh,500,Surface,2020,Major flow entering Indo-Gangetic plain
+Ganga,Ganga Basin,Uttar Pradesh,Bihar,450,Surface,2020,Agricultural zone
+Ganga,Ganga Basin,Bihar,West Bengal,400,Surface,2020,Flow towards Farakka Barrage
+Yamuna,Ganga Basin,Haryana,Delhi,150,Canal,2020,Used for Delhi water supply
+Yamuna,Ganga Basin,Delhi,Uttar Pradesh,120,Surface,2020,Downstream discharge
+Brahmaputra,Brahmaputra Basin,Arunachal Pradesh,Assam,500,Surface,2020,Enters Assam plains
+Godavari,Godavari Basin,Maharashtra,Telangana,280,Surface,2020,Part of Polavaram project
+Godavari,Godavari Basin,Telangana,Andhra Pradesh,260,Surface,2020,Flows to Bay of Bengal
+Krishna,Krishna Basin,Maharashtra,Karnataka,200,Surface,2020,Upstream contribution
+Krishna,Krishna Basin,Karnataka,Andhra Pradesh,310,Surface,2020,Major irrigation source
+Cauvery,Cauvery Basin,Karnataka,Tamil Nadu,190,Dispute,2020,Water-sharing dispute
+Mahanadi,Mahanadi Basin,Chhattisgarh,Odisha,220,Surface,2020,Hydro power region
+Narmada,Narmada Basin,Madhya Pradesh,Gujarat,180,Surface,2020,Sardar Sarovar Dam flow
+Tapti,Tapti Basin,Madhya Pradesh,Maharashtra,150,Surface,2020,Central India basin
+Tapti,Tapti Basin,Maharashtra,Gujarat,130,Surface,2020,Discharge to Arabian Sea
+Sabarmati,Sabarmati Basin,Rajasthan,Gujarat,110,Surface,2020,Seasonal river
+Pennar,Pennar Basin,Karnataka,Andhra Pradesh,100,Surface,2020,South-central basin
+Periyar,Periyar Basin,Kerala,Tamil Nadu,90,Dam Diversion,2020,Periyar Dam diversion
+Sutlej,Indus Basin,Himachal Pradesh,Punjab,140,Surface,2020,Major northern flow
+Beas,Indus Basin,Himachal Pradesh,Punjab,130,Surface,2020,Joins Sutlej
+Ravi,Indus Basin,Himachal Pradesh,Punjab,120,Surface,2020,Cross-border flow to Pakistan
+Ghaghara,Ganga Basin,Uttar Pradesh,Bihar,160,Surface,2020,Tributary of Ganga
+Chambal,Yamuna Basin,Madhya Pradesh,Rajasthan,170,Surface,2020,Flows through ravine region
+Betwa,Yamuna Basin,Madhya Pradesh,Uttar Pradesh,150,Surface,2020,Ken-Betwa link project
+Son,Ganga Basin,Madhya Pradesh,Bihar,190,Surface,2020,Joins Ganga at Patna
+Damodar,Ganga Basin,Jharkhand,West Bengal,200,Surface,2020,Industrial water use
