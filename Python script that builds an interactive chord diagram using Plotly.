@@ -1,0 +1,64 @@
+import pandas as pd
+import plotly.graph_objects as go
+
+# Load the CSV
+df = pd.read_csv("river_flow_data.csv")
+
+# Create a list of unique states for nodes
+states = list(pd.unique(df[['From_State', 'To_State']].values.ravel('K')))
+state_index = {state: i for i, state in enumerate(states)}
+
+# Create a matrix of flows
+import numpy as np
+matrix = np.zeros((len(states), len(states)))
+
+for _, row in df.iterrows():
+    i = state_index[row['From_State']]
+    j = state_index[row['To_State']]
+    matrix[i, j] = row['Flow_TMC']
+
+# Color map for Basins
+basins = df['Basin'].unique()
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+basin_color_map = {basin: colors[i % len(colors)] for i, basin in enumerate(basins)}
+
+# Prepare hover text for each link
+hover_text = []
+for i, from_state in enumerate(states):
+    hover_row = []
+    for j, to_state in enumerate(states):
+        sub_df = df[(df['From_State'] == from_state) & (df['To_State'] == to_state)]
+        if not sub_df.empty:
+            row = sub_df.iloc[0]
+            hover_row.append(
+                f"River: {row['River']}<br>Basin: {row['Basin']}<br>Flow: {row['Flow_TMC']} TMC<br>Type: {row['Flow_Type']}<br>Notes: {row['Notes']}"
+            )
+        else:
+            hover_row.append('')
+    hover_text.append(hover_row)
+
+# Build the chord diagram as a Sankey (Plotly does not have a native chord, Sankey works well)
+link = {
+    'source': [state_index[row['From_State']] for _, row in df.iterrows()],
+    'target': [state_index[row['To_State']] for _, row in df.iterrows()],
+    'value': [row['Flow_TMC'] for _, row in df.iterrows()],
+    'color': [basin_color_map[row['Basin']] for _, row in df.iterrows()],
+    'hovertemplate': [f"River: {row['River']}<br>Basin: {row['Basin']}<br>Flow: {row['Flow_TMC']} TMC<br>Type: {row['Flow_Type']}<br>Notes: {row['Notes']}" for _, row in df.iterrows()]
+}
+
+node = {
+    'label': states,
+    'pad': 20,
+    'thickness': 20,
+    'color': "#bbbbbb"
+}
+
+fig = go.Figure(go.Sankey(link=link, node=node))
+
+fig.update_layout(
+    title_text="Inter-State River Water Flow in India",
+    font_size=12,
+    height=800
+)
+
+fig.show()
